@@ -21,8 +21,8 @@ z_Pmp1 = sort(z_Pmp1); p_Pmp1 = sort(p_Pmp1);
 P2 = zpk([],[p_Pmp1(1:2)],k_Pmp1)/dcgain(zpk(p_Pmp1(3:4),z_Pmp1,1));
 figure('name','Bode plot'); bode(P2,Pmp1,Pmp2,Pnmp); legend('P2','Pmp1','Pmp2','Pnmp');
 
-%% Pmp1
-P = Pmp1;
+%% plant choice
+P = Pmp1; % P = Pmp2; or P = Pnmp;
 figure('name','plant'); bode(P);
 
 %% controller design
@@ -49,7 +49,7 @@ C = kp + ki/s + kd*s/(s+tau);
 % etc..
 %}
 
-%% verify
+%% verification
 % reference response
 Gyr = feedback(P*C,1);
 figure('name','reference response'); step(Gyr);
