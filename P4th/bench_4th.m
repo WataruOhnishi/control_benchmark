@@ -17,7 +17,8 @@ Pnmp = func_plant_stage1(0.30); % non-minimum phases system (non-collocated)
 
 % 2nd order approximation
 [z_Pmp1, p_Pmp1, k_Pmp1] = zpkdata(Pmp1,'v');
-P2 = zpk([],[p_Pmp1(1),p_Pmp1(4)],k_Pmp1)/dcgain(zpk(p_Pmp1(2:3),z_Pmp1,1));
+z_Pmp1 = sort(z_Pmp1); p_Pmp1 = sort(p_Pmp1);
+P2 = zpk([],[p_Pmp1(1:2)],k_Pmp1)/dcgain(zpk(p_Pmp1(3:4),z_Pmp1,1));
 figure;  bode(P2,Pmp1,Pmp2,Pnmp);
 
 %% Pmp1
@@ -38,8 +39,9 @@ S = feedback(1,P*C);
 figure; bode(S);
 
 % margin
-M = allmargin(P*C)
+try M = allmargin(P*C) % Octave compatibility
+catch figur; margin(P*C); end
 
-% % nyquist diagram
-% figure; nyquist(P*C);
+% nyquist diagram
+figure; nyquist(P*C);
 
