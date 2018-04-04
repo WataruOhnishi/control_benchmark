@@ -19,29 +19,31 @@ Pnmp = func_plant_stage1(0.30); % non-minimum phases system (non-collocated)
 [z_Pmp1, p_Pmp1, k_Pmp1] = zpkdata(Pmp1,'v');
 z_Pmp1 = sort(z_Pmp1); p_Pmp1 = sort(p_Pmp1);
 P2 = zpk([],[p_Pmp1(1:2)],k_Pmp1)/dcgain(zpk(p_Pmp1(3:4),z_Pmp1,1));
-figure;  bode(P2,Pmp1,Pmp2,Pnmp);
+figure('name','Bode plot'); bode(P2,Pmp1,Pmp2,Pnmp); legend('P2','Pmp1','Pmp2','Pnmp');
 
 %% Pmp1
 P = Pmp1;
+figure('name','plant'); bode(P);
 C = 1; % please design controller
 
 % verify
 % reference response
 Gyr = feedback(P*C,1);
-figure; step(Gyr);
+figure('name','reference response'); step(Gyr);
 
 % disturbance response
 Gyd = feedback(P,C);
-figure; step(Gyd);
+figure('name','disturbance response'); step(Gyd);
 
 % sensitivity function
 S = feedback(1,P*C);
-figure; bode(S);
+figure('name','sensitivity function'); bode(S);
 
 % margin
 try M = allmargin(P*C) % Octave compatibility
-catch figur; margin(P*C); end
+catch figure; margin(P*C); end
 
 % nyquist diagram
-figure; nyquist(P*C);
+figure('name','nyquist diagram'); nyquist(P*C);
+xlim([-100,100]);ylim([-100,100]);
 

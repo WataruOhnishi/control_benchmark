@@ -1,0 +1,6 @@
+### CtrlTools Specific
+
+### Matlab
+*.asv
+*.mex*
+slprj/
