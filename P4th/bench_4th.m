@@ -24,9 +24,32 @@ figure('name','Bode plot'); bode(P2,Pmp1,Pmp2,Pnmp); legend('P2','Pmp1','Pmp2','
 %% Pmp1
 P = Pmp1;
 figure('name','plant'); bode(P);
-C = 1; % please design controller
 
-% verify
+%% controller design
+% please design controller
+% PID controller as an example
+kp = 1; ki = 0; kd = 0; tau = 0;
+C = kp + ki/s + kd*s/(s+tau); 
+
+%{
+% Hints
+
+% 1. Try and error design
+
+% 2. PID pole placement design using 2nd order model
+% Ref. G. C. Goodwin, S. F. Graebe, and M. E. Salgado, Control System Design. 2000.
+% Section 7.2. Theorem 7.1 (Sylvester's theorem)
+
+% 3. Add notch filter or phase lead-lag filter
+
+% 4. Disturbance observer
+
+% 5. State feedback
+
+% etc..
+%}
+
+%% verify
 % reference response
 Gyr = feedback(P*C,1);
 figure('name','reference response'); step(Gyr);
