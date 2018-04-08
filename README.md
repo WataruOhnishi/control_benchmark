@@ -6,9 +6,9 @@ Tested by MATLAB R2017b. Some cords work for Octave 4.2.2.
 
 ## 4th order mechanical system
 `func_plant_stage1(Lm)` outputs a 4th order continuous time model `Pc` as a function of the height of the measurement point `Lm`.
-* `Pmp1` ($L_m=0$) denotes collocated system with continuous time stable zeros
-* `Pmp2` ($L_m=0.085$) denotes non-collocated system with continuous time stable zeros
-* `Pnmp` ($L_m=0.300$) denotes non-collocated system with continuous time unstable zeros
+* `Pmp1` ($L_m=0$): collocated system with stable zeros
+* `Pmp2` ($L_m=0.085$): **non-collocated** system with stable zeros
+* `Pnmp` ($L_m=0.300$): non-collocated system with **unstable zeros**
 
 <img src="P4th/nanostage1.png" width="400">
 <br>
