@@ -8,7 +8,7 @@ Tested by MATLAB R2017b. Some cords work for Octave 4.2.2.
 `func_plant_stage1(Lm)` outputs a 4th order continuous time model `Pc` as a function of the height of the measurement point `Lm`.
 * `Pmp1` ($L_m=0$): collocated system with stable zeros
 * `Pmp2` ($L_m=0.085$): **non-collocated** system with stable zeros
-* `Pnmp` ($L_m=0.300$): non-collocated system with **unstable zeros**
+* `Pnmp` ($L_m=0.300$): non-collocated system with an **unstable zero**
 
 <img src="P4th/nanostage1.png" width="400">
 <br>
