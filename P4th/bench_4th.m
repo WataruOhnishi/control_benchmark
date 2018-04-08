@@ -28,7 +28,7 @@ figure('name','plant'); bode(P);
 %% controller design
 % please design controller
 % PID controller as an example
-kp = 1; ki = 0; kd = 0; tau = 0;
+kp = 10000; ki = 0; kd = 0; tau = 0;
 C = kp + ki/s + kd*s/(s+tau); 
 
 %{
