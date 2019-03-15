@@ -22,6 +22,4 @@ Tested by MATLAB R2017b. Some cords work for Octave 4.2.2.
 
 	2018-, Wataru Ohnishi, The University of Tokyo
 
-control_benchmark is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
-
-control_benchmark is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+control_benchmark is free software under the terms of the MIT License.
